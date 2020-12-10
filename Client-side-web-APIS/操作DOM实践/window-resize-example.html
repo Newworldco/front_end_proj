@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Window resize example</title>
+    <style>
+      body {
+        margin: 0;
+      }
+
+      div {
+        box-sizing: border-box;
+        width: 100px;
+        height: 100px;
+        background-image: url(bgtile.png);
+        border: 10px solid white;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div>
+
+    </div>
+
+    <script>
+        let div = document.querySelector('div');
+        let width = window.innerWidth;
+        let height = window.innerHeight;
+
+        div.style.width = width + 'px';
+        div.style.height = height + 'px';
+
+        //动态调整
+        window.onresize = function(){
+            WIDTH = window.innerWidth;
+            HEIGHT = window.innerHeight;
+            div.style.width = WIDTH + 'px';
+            div.style.height = HEIGHT + 'px';
+        }
+    </script>
+  </body>
+</html>

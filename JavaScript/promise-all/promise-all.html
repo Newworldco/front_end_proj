@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <title>My test page</title>
+  </head>
+  <body>
+    <p>This is my page</p>
+    <script>
+      function fetchAndDecode(url, type) {
+          return fetch(url).then(response => {
+              if (type === 'blob'){
+                  return response.blob();
+              }else if (type === 'text') {
+                  return response.text();
+              }
+          }).catch(e => {
+              console.log(`There has been a problem with your fetch operation for resource "${url}": ` + e.message);
+          })
+      } 
+      let coffee = fetchAndDecode('coffee.jpg', 'blob');
+      let tea = fetchAndDecode('tea.jpg', 'blob');
+      let description = fetchAndDecode('descripation.txt', 'text');
+      
+      Promise.all([coffee, tea, description]).then(values => {
+        console.log(values);
+    
+      //存贮 被传递的资源的值
+      let objectURL1 = URL.createObjectURL(values[0]);
+      let objectURL2 = URL.createObjectURL(values[1]);
+      let descText = values[2];
+
+      //显示图片
+      let img1 = document.createElement('img');
+      let img2 = document.createElement('img');
+      img1.src = objectURL1;
+      img2.src = objectURL2;
+      document.body.appendChild(img1);
+      document.body.appendChild(img2);
+
+      //显示文本
+      let para = document.createElement('p');
+      para.textContent = descText;
+      document.body.appendChild(para);
+    });
+
+    </script>
+  </body>
+</html>

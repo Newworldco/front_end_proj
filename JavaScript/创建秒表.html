@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <title>Simple setInterval clock</title>
+    <style>
+      p {
+        font-family: sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <p class="clock"></p>
+    <button class="start">Start</button>
+    <button class="stop">Stop</button>
+    <button class="reset">Reset</button>
+    <script>
+      //定义全局变量，数秒
+      let secoundCont = 0;
+
+      let displayPara = document.querySelector('.clock');
+
+      let stopWatch;
+
+
+      function displayTime() {
+        //计算 时，分，秒
+        let hours = Math.floor(secoundCont/3600);
+        let minutes = Math.floor(secoundCont%3600/60);
+        let seconds = Math.floor(secoundCont%60);
+
+        //判断前面是否加零
+        let displayhours = (hours >= 10) ? hours : "0" + hours;
+        let displayminutes = (minutes >= 10) ? minutes : "0" + minutes;
+        let displayseconds = (seconds >= 10) ? seconds : "0" + seconds;
+
+        displayPara.textContent = displayhours + ":" + displayminutes + ":" + displayseconds;
+
+        secoundCont ++;
+
+      }
+
+      //存储按钮
+      let starBtn = document.querySelector('.start');
+      let stopBtn = document.querySelector('.stop');
+      let resetBtn = document.querySelector('.reset');
+      
+      //按下 start
+      starBtn.addEventListener('click', ()=>{
+          stopWatch = setInterval(displayTime, 1000);
+          starBtn.disabled = true;
+      });
+
+      //按下 stop
+      stopBtn.addEventListener('click', () => {
+        clearInterval(stopWatch);
+        starBtn.disabled = false;
+      });
+
+      //按下 reset
+      resetBtn.addEventListener('click', () => {
+        clearInterval(stopWatch);
+        starBtn.disabled = false;
+        secoundCount = 0;
+        displayTime();
+      });
+
+      //run()
+      displayTime();
+    </script>
+  </body>
+</html>

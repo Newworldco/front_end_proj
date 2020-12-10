@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Shopping list example</title>
+    <style>
+      li {
+        margin-bottom: 10px;
+      }
+
+      li button {
+        font-size: 8px;
+        margin-left: 20px;
+        color: #666;
+      }
+    </style>
+  </head>
+  <body>
+
+    <h1>My shopping list</h1>
+
+    <div>
+      <label for="item">Enter a new item:</label>
+      <input type="text" name="item" id="item">
+      <button>Add item</button>
+    </div>
+
+    <ul>
+
+    </ul>
+
+    <script>
+        let ul = document.querySelector('ul');
+        let input = document.querySelector('input');
+        let button = document.querySelector('button');
+
+        button.onclick = function(){
+            //获取输入值
+            let items = input.value;
+            input.value = '';
+            //在 ul 中显示
+            let li = document.createElement('li');
+            let span = document.createElement('span');
+            let button2add = document.createElement('button');
+            
+        
+            li.appendChild(span);
+            li.appendChild(button2add);
+            ul.appendChild(li);
+
+            span.textContent = items;
+            button2add.textContent = 'Delete';
+
+            //删除按钮功能
+            button2add.onclick = function(){
+                button2add.parentNode.removeChild();
+                input.focus();
+            }
+        }
+
+    </script>
+  </body>
+</html>
