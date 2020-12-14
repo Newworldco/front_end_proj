@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+    </style>
+    <meta charset="utf-8">
+    <title>Canvas</title>
+  </head>
+  <body>
+    <canvas class="myCanvas">
+        <p>添加反馈信息</p>
+
+    </canvas>
+
+    <script>
+      const canvas = document.querySelector('.myCanvas');
+      const width = canvas.width = window.innerWidth;
+      const height = canvas.height = window.innerHeight;
+      const ctx = canvas.getContext('2d');
+      ctx.fillStyle = 'rgb(0,0,0)';
+      ctx.fillRect = (0,0,width,height);
+    </script>
+  </body>
+</html>
