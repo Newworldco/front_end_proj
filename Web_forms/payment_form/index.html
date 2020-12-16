@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>My test page</title>
+    <link href="payment-form.css" rel="stylesheet">
+  </head>
+  <body>
+    <p>主页</p>
+    <form>
+        <h1>账单表</h1>
+        <p><strong><abbr title="required">*</abbr></strong>星号都要填</p>
+        <section>
+            <h2>联系信息</h2>
+            <fieldset>
+                <legend>头衔</legend>
+                <ul>
+                    <li>
+                        <label for="title_1">
+                            <input type="radio" id="title_1" name="title" value="K">
+                            King
+
+                        </label>
+                    </li>
+                    <li>
+                        <label for="title_2">
+                            <input type="radio" id="title_2" name="title" value="Q">
+                            Queen
+                        </label>
+                    </li>
+                    <li>
+                        <label for="title_3">
+                            <input type="radio" id="title_3" name="title" value="J">
+                            Joker
+                        </label>
+                    </li>
+                </ul>
+            </fieldset>
+            <p>
+                <label for="name">
+                  <span>姓名: </span>
+                  <strong><abbr title="required">*</abbr></strong>
+                </label>
+                <input type="text" id="name" name="username">
+              </p>
+              <p>
+                <label for="mail">
+                  <span>邮箱: </span>
+                  <strong><abbr title="required">*</abbr></strong>
+                </label>
+                <input type="email" id="mail" name="usermail">
+              </p>
+              <p>
+                <label for="pwd">
+                  <span>密码: </span>
+                  <strong><abbr title="required">*</abbr></strong>
+                </label>
+                <input type="password" id="pwd" name="password">
+              </p>
+        </section>
+        <section>
+            <h2>支付信息</h2>
+            <p>
+                <label for="card">
+                    <span>卡类型</span>
+                </label>
+                <select id="card" name="usercard">
+                    <option value="visa">Visa</option>
+                    <option value="mc">Mastercard</option>
+                    <option value="amex">American Express</option>
+                </select>
+            </p>
+            <p>
+                <label for="number">
+                  <span>卡号:</span>
+                  <strong><abbr title="required">*</abbr></strong>
+                </label>
+                <input type="tel" id="number" name="cardnumber">
+              </p>
+              <p>
+                <label for="date">
+                  <span>到期时间:</span>
+                  <strong><abbr title="required">*</abbr></strong>
+                  <em>formatted as mm/dd/yyyy</em>
+                </label>
+                <input type="date" id="date" name="expiration">
+              </p>
+        </section>
+        <p><button type="submit">验证付款</button></p>
+    </form>
+  </body>
+</html>
